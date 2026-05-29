@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: raw_almacen                # el nombre del origen de los datos
+    database: my-project-curso-dbt   # Id de proyectos de GCS
+    schema: almacen_gcs_fts_v2       # el dataset de bigquery
+    loader: gcs
+
+    tables: 
+      - name: meses                   # el nombre que quiera que tanga la tabla
+        external:                     # poner la ruta del bucket donde etan el csv's
+          location: 'gs://almacen_gcs_fts_v2/*.csv'
+          options:
+            format: csv
+            skip_leading_rows: 1       # Salta el encabezado de la primera fila del csv
