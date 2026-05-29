@@ -1,1 +1,1 @@
-SELECT * FROM {{ source('raw_almacen','meses') }}
+SELECT * FROM {{ ('stg_datos_almacen') }}
